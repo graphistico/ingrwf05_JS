@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+
+	<meta charset="UTF-8">
+	<title>EX 17 03</title>
+
+	<style>
+		main{display:flex;}
+		aside{width: 150px;}
+		button{width: 130px;margin-top:15px;}
+		ul{padding:0;}
+	</style>
+
+</head>
+
+<body>
+
+	<main>
+		<aside>
+			<ul></ul>
+
+			<form action="">
+				<input type="text" class="input-nom" placeholder="Votre nom">
+				<input type="text" class="input-prenom" placeholder="Votre prénom">
+				<input type="text" class="input-email" placeholder="Votre e-mail">
+				<input type="number" class="input-age" placeholder="Votre âge">
+				<input type="text" class="input-tel" placeholder="Votre téléphone">
+				<button>Ajouter</button>
+			</form>
+		</aside>
+
+		<section>
+			<h1>Maria Iacuzzi</h1>
+			<dl>
+				<dt>Téléphone</dt>
+				<dd class="tel">0473/85.32.69</dd>
+				<dt>E-mail</dt>
+				<dd class="email">info@graphistico.be</dd>
+				<dt>Age</dt>
+				<dd class="age">38</dd>
+			</dl>
+		</section>
+
+	</main>
+
+	<script>
+
+		personne = {
+			"nom" : "Charlier",
+			"prenom" : "Pierre",
+			"telephone" : "0473/85.32.69",
+			"email" : "info@graphistico.be",
+			"formation" : true,
+			"age" : 48
+		}
+
+		myPersonnel = new Array();
+
+		myPersonnel.push({
+			"nom" : "Charlier",
+			"prenom" : "Pierre",
+			"telephone" : "0473/85.32.69",
+			"email" : "pierre-charlier@cepegra.be",
+			"formation" : true,
+			"age" : 48
+		});
+
+		myPersonnel.push({
+			"nom" : "Iacuzzi",
+			"prenom" : "Maria",
+			"telephone" : "0474/20.19.90",
+			"email" : "info@graphistico.be",
+			"formation" : false,
+			"age" : 38
+		});
+
+
+		console.log(myPersonnel);
+
+		var myList = document.querySelector("aside ul");
+		var myTitre = document.querySelector("h1");
+		var myPhone = document.querySelector(".tel");
+		var myEmail = document.querySelector(".email");
+		var myAge = document.querySelector(".age");
+
+
+		function AffData(id){
+			myTitre.innerHTML = myPersonnel[id].nom + " " + myPersonnel[id].prenom;
+			myPhone.innerHTML = myPersonnel[id].telephone; 
+			myEmail.innerHTML = myPersonnel[id].email;
+			myAge.innerHTML = myPersonnel[id].age; 
+		}
+
+
+		function CreateListe(){
+			myList.innerHTML ="";
+			for (var i = 0; i < myPersonnel.length; i++) {
+			myList.innerHTML += '<li data-id="' + i + '">' + myPersonnel[i].nom + ' ' + myPersonnel[i].prenom + '</li>';
+			};
+		
+		    var myAllLi = document.querySelectorAll("ul li");
+
+		    for (var i = 0; i < myAllLi.length; i++) {
+
+				myAllLi[i].addEventListener('click', function(){
+				var myId = this.getAttribute("data-id");
+				//alert(myId);
+				AffData(myId);
+
+				});
+			};
+		} 
+
+
+		var myBtn = document.querySelector("button");
+
+		var myNewNom = document.querySelector(".input-nom");
+		var myNewPrenom = document.querySelector(".input-prenom");
+		var myNewTel = document.querySelector(".input-tel");
+		var myNewEmail = document.querySelector(".input-email");
+		var myNewAge = document.querySelector(".input-age");
+
+
+		myBtn.addEventListener('click', function(e) {
+			
+			event.preventDefault();
+
+			newPersonne = {
+			"nom" : myNewNom.value,
+			"prenom" : myNewPrenom.value,
+			"telephone" : myNewTel.value,
+			"email" : myNewEmail.value,
+			"age" : myNewAge.value,
+			}
+
+	        myPersonnel.push(newPersonne);
+	        console.log(myPersonnel);
+	        CreateListe();
+
+		});
+
+
+		CreateListe();
+
+	</script>
+
+</body>
+</html>
