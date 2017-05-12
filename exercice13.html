@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<title>Ex 13</title>
+
+</head>
+<body>
+	<header>
+		<form action="">
+			<input type="text" id="nb1" name="" value="">
+			<input type="text" id="nb2" name="" value="">
+			<button>+</button>
+			<button>-</button>
+			<button>*</button>
+			<button>/</button>		
+		</form>
+
+		<div id="resultat">
+			<h1>Résultat</h1>
+			<p></p>
+		</div>
+	</header>
+	<script>//EXERCICE 13 : CALCULATRICE, je tape un chiffre dans chaque champ, je choisi une opération et il affiche un résultat.
+
+	//Selecteurs
+	myNb1 = document.querySelector('#nb1');
+	myNb2 = document.querySelector('#nb2');
+	myResult = document.querySelector('#resultat p');
+	myBtns = document.querySelectorAll('header button');
+
+	//Events
+	for (var i = 0; i < myBtns.length; i=i+1) {
+		myBtns[i].addEventListener('click', function(event) {
+			event.preventDefault();
+			myVal1 = myNb1.value;
+			myVal2 = myNb2.value;
+			myOperator = this.innerHTML;
+			
+			Calcul(myVal1, myVal2, myOperator);
+		})
+
+	}
+
+	//Functions : mettre une majuscule aux noms des fonctions
+	var Calcul = function(val1, val2, operator) {
+		//alert(val1 + " " + val2 + " " + operator);
+		val1 = parseFloat(val1);
+		val2 = parseFloat(val2);
+
+		if(operator == "+") {
+			total = val1 + val2;
+		}
+		else if(operator == "-") {
+			total = val1 - val2;
+		}
+		else if(operator == "*") {
+			total = val1 * val2;
+		}
+		else {
+			total = val1 / val2;
+		}
+		myResult.innerHTML = total;
+	};
+
+	    
+	</script>
+
+</body>
+</html>

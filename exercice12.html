@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<title>Ex 12</title>
+</head>
+<body>
+	<h1>Titre par défaut</h1>
+
+	<p>Lundi</p>
+	<p>Mardi</p>
+	<div id="survol">Passez la souris</div>
+
+	<script>
+	//EXERCICE 12 : Functions
+
+	    //functions : 2 cas de figure identiques
+
+		/*function Generale (text) { //generale est un nom que je choisi
+			document.querySelector ('h1').innerHTML = text;
+		}*/
+
+		var Generale = function(text){
+			document.querySelector ('h1').innerHTML = text;
+		}
+
+		//sélecteurs
+		myBody = document.querySelector('body');
+		myP = document.querySelector('p');
+		mySurvol = document.querySelector('#survol');
+
+		//Events
+		myBody.onload = Generale ('Youpee');
+		myP.onclick = function() {//onclick = lorsque je clique
+			Generale(this.innerHTML);//this = élément sur lequel j'ai cliqué
+		}				
+		mySurvol.onmouseover = function() {//onmouseover = sur lequel je suis
+			Generale(this.innerHTML);//this = élément que je passe
+		}
+		mySurvol.onmouseout = function() {//onmouseout = duquel je sors
+			Generale('Youpee');//this = élément que j'ai quitté
+		}
+
+	</script>
+</body>
+</html>

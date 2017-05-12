@@ -1,0 +1,54 @@
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JS Ex 4</title>
+
+	<style>
+		input{}
+	</style>
+
+</head>
+
+<body>
+
+	<header>
+		<form action="" id="login">
+			<input placeholder="login" type="text" id="pseudo">
+			<button></button>
+		</form>
+	</header>
+
+<section></section>
+
+
+	<script>
+
+		/* exercice 4 : les "if" */
+
+		var myLogBtn = document.querySelector('#login button'); //1.sélection du bouton le "var" en dehors de la function est à indiquer.
+
+		myLogBtn.onclick = function(event) {
+			//le onclick ne permet pas de le rendre inactif après
+			event.preventDefault(); //empêcher l'action native de l'évênement
+			myLogField = document.querySelector('#pseudo'); //je vais toucher cet élément pour le faire intéragir
+			myLog = myLogField.value;
+			//alert(myLog);
+
+		if ( myLog == 'admin' ) {
+			alert('ok');//pour créer une boîte de dialogue juste alert('');
+			} // le double == c'est parce il faut que les deux valeurs soient égales, deux valeurs qui doivent toutes les deux être égales alors deux égales et l'alerte c'est un pop up indiquant le mot (' ') indiqué dans les parenthèses
+
+		else if ( myLog == '' ) {
+			alert('tapez votre pseudo');
+			}
+
+		else {
+			alert('pas ok');
+			}
+	
+		};
+
+	</script>
+
+</body>
+</html>

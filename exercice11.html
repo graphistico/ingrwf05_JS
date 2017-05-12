@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<title>Exercice 11</title>
+	<style>
+		.hidden {
+			display: none;
+		}
+		h1 {
+			cursor: pointer;
+		}
+
+	</style>
+</head>
+<body>
+	<section>
+		<div class="top">
+			<h1>Login</h1> <!-- myTitle -->			
+	    </div>
+	</section>
+
+	<section>
+		<form action="" class="hidden">
+			<h1 class="close">Close</h1> <!-- myClose -->
+			<label for="login">Login</label>
+			<input type="text" id="login" name="" value="">
+			<label for="psw">Password</label>
+			<input type="text" id="psw" name="" value="">
+			<button>Submit</button>
+		</form>
+	</section>
+		
+	<script>
+	//Exercice 11 : faire apparaître et disparaître un form
+
+		var myForm = document.querySelector('form');
+		var myH1 = document.querySelector('h1');
+		var myClose = document.querySelector('.close');
+
+		myH1.onclick = function(event) {
+			event.preventDefault(); //empêcher l'action native de l'évênement
+            myForm.classList.remove('hidden'); //remove(=retirer)-add(=ajouter)-toggle(retire ou ajoute si la classe existe ou pas ds l'élément ciblé)
+            myH1.classList.add('hidden');
+			
+		};
+
+		myClose.onclick = function(event) {
+			event.preventDefault(); //empêcher l'action native de l'évênement
+            myForm.classList.add('hidden');
+            myH1.classList.remove('hidden');	
+		};
+
+
+		
+
+	</script>
+</body>
+</html>

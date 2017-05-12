@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JS EX 9</title>
+</head>
+<body>
+
+	<header>
+		<nav>
+			<ul>
+
+				<li><a href="http://www.cepegra.be">Cepegra</a></li>
+				<li><a href="http://www.google.be">Google</a></li>
+				<li><a href="#">Rien</a></li>
+
+			</ul>
+		</nav>
+	</header>
+
+
+	<script> //Array = groupe d'éléments
+		myLinks = document.querySelectorAll('header a');
+	    console.log(myLinks);
+
+		for (var i = 0; i < myLinks.length; i=i+1) {
+			myLinks[i].onclick = function(event){
+				event.preventDefault();
+				if( confirm("Vous nous quittez pour aller chez " +this.innerHTML + "?") ){
+					document.location.href = this.href;
+					} 
+			} 
+		};
+
+	</script>
+
+
+</body>
+</html>

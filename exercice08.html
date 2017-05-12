@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<title>JS Ex8</title>
+
+	<style>
+		#red, #green, #blue {
+			height:50px;
+			width:50px;
+			float:left;
+			color:#fff;
+			text-align:center;
+			line-height:50px;
+		}
+
+		#red{
+			background-color:red;
+		}
+
+		#green{
+			background-color:green;
+		}
+
+		#blue{
+			background-color:blue;
+		}
+		section {
+			clear:left;
+		}
+
+	</style>
+
+</head>
+
+<body>
+
+
+	<div id="red">red</div>
+	<div id="green">green</div>
+	<div id="blue">blue</div>
+
+	<section>
+	<h1>texte prenant la couleur</h1>
+	</section>
+
+
+	<script> 
+		
+		/* exercice 8 : lorsque je passe sur le rectangle de couleur le texte de la section change de couleur aussi */
+
+		var myRed = document.querySelector('#red');
+		myRed.onmouseover = function(event) {
+			event.preventDefault(); 
+			mySection = document.querySelector('section h1');
+			mySection.style.color= "red";
+		};
+
+		var myGreen = document.querySelector('#green');
+		myRed.onmouseover = function(event) {
+			event.preventDefault(); 
+			mySection = document.querySelector('section h1');
+			mySection.style.color= "green";
+		};
+
+		var myBlue = document.querySelector('#blue');
+		myBlue.onmouseover = function(event) {
+			event.preventDefault(); 
+			mySection = document.querySelector('section h1');
+			mySection.style.color= "blue";
+		};
+
+	</script>
+</body>
+</html>

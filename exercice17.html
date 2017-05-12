@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<title>EX 17</title>
+	<style>
+		main{
+			display:flex;
+		}
+		aside{
+			width: 200px;
+		}
+	</style>
+</head>
+<body>
+<main>
+	<aside>
+		<ul></ul>
+	</aside>
+	<section>
+		<h1>Maria Iacuzzi</h1>
+		<dl>
+			<dt>Téléphone</dt>
+			<dd class="tel">0473/85.32.69</dd>
+			<dt>E-mail</dt>
+			<dd class="email">info@graphistico.be</dd>
+		</dl>
+	</section>
+</main>
+<script>
+
+	personne = {
+		"nom" : "charlier",
+		"prenom" : "Pierre",
+		"telephone" : "0473/85.32.69",
+		"email" : "info@graphistico.be",
+		"formation" : true,
+		"age" : 48
+	}
+
+	myPersonnel = new Array();
+
+	myPersonnel.push({
+		"nom" : "charlier",
+		"prenom" : "Pierre",
+		"telephone" : "0473/85.32.69",
+		"email" : "pierre-charlier@cepegra.be",
+		"formation" : true,
+		"age" : 48
+	});//ajouter une personne
+
+	myPersonnel.push({
+		"nom" : "Iacuzzi",
+		"prenom" : "Maria",
+		"telephone" : "0474/20.19.90",
+		"email" : "info@graphistico.be",
+		"formation" : false,
+		"age" : 46
+	});//ajouter une personne
+
+	console.log(myPersonnel);
+
+	//Selecteurs
+	var myList = document.querySelector("aside ul");
+	var myTitre = document.querySelector("h1");
+	var myPhone = document.querySelector(".tel");
+	var myEmail = document.querySelector(".email");
+	//console.log(myEmail);
+
+	// affichage des données de la première personne
+	myTitre.innerHTML = myPersonnel[0].nom + " " + myPersonnel[0].prenom;
+	myPhone.innerHTML = myPersonnel[0].telephone; 
+	myEmail.innerHTML = myPersonnel[0].email; 
+
+	// bouclage des personnes et affichage dans aside en ul>li
+	for (var i = 0; i < myPersonnel.length; i++) {
+		myList.innerHTML += '<li data-id="' + i + '">' + myPersonnel[i].nom + ' ' + myPersonnel[i].prenom + '</li>';
+	};
+
+	//lors du clique sur un li faire apparaitre les infos du li selectionné
+	var myAllLi = document.querySelectorAll("ul li");
+
+	for (var i = 0; i < myAllLi.length; i++) {
+
+		myAllLi[i].addEventListener('click', function(){
+			var myId = this.getAttribute("data-id");
+			//alert(myId);
+			myTitre.innerHTML = myPersonnel[myId].nom + " " + myPersonnel[0].prenom;
+			myPhone.innerHTML = myPersonnel[myId].telephone; 
+			myEmail.innerHTML = myPersonnel[myId].email; 
+		});
+	};
+
+dssdxdsxdsq
+</script>
+</body>
+</html>

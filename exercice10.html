@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JS EX 10</title>
+
+	<style>
+		body, figure{
+			margin:0;
+		}
+		img{
+			width: 50%; 
+		}
+
+		#photos{
+			display: flex;
+			flex-direction: column;
+			float: left;			
+			width: 20%;
+		}
+		#reelle{
+			width: 80%;
+			float: right;
+			min-height: 100px;
+		}
+	</style>
+
+</head>
+<body>
+
+	<section id="photos">
+
+		<div id="img1">
+			<img src="images/photo1.jpg" alt="image 1">
+		</div>
+		<div>
+			<img src="images/photo2.jpg" alt="image 2">
+		</div>
+		<div>
+			<img src="images/photo3.jpg" alt="image 3">
+		</div>
+
+	</section>
+
+
+	<section id="reelle">	
+		<figure>
+			<img src="images/photo1.jpg" alt="imgage 1">
+			<figcaption></figcaption>
+		</figure>
+	</section>
+
+
+	<script> //Array = groupe d'éléments
+		myVignettes = document.querySelectorAll('#photos img'); //je cible toutes les images du groupe (=Array) avec le All ajouté à querySelector
+		myReelle = document.querySelector('#reelle img'); //je cible l'image qui se trouve de mon bloc "#reelle" qui représente l'affichage de l'image en taille réelle
+		myFigcaption = document.querySelector('figcaption');//je cible le figcaption où va s'afficher le "alt" (= la légende de l'image) de chacune des images
+	    console.log(myVignettes);
+
+		for (var i = 0; i < myVignettes.length; i = i+1){  //demande en boucle sur le groupe (=Array) d'images afin de ne pas répéter une fonction sur chaqu'une d'elles. Pour créer un Array on indique for = la variable i (incrémentée) est = à 0; i est plus petit que la longueur de mes vignettes; i est = à i+1
+		
+		myVignettes[i].onclick = function(event){ //mon groupe d'images[i] = (incrémentées) au click = voici l'évênement
+			//event.preventDefault();
+			//alert(this.src);
+			myReelle.src = this.src; //je veux que la source de ma grande image en taille réelle est égale à la source de ma grande image = à la source de mon this qui est mon image
+			myFigcaption.innerHTML = this.alt;//mon bloc légende appelle = les alt de mes images 
+			}
+
+		};
+
+
+	</script>
+
+
+</body>
+</html>

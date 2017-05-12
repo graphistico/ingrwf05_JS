@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<title>Ex 15</title>
+</head>
+<body>
+	
+
+	<header>
+		<form action="">
+			<input type="text" id="prenom" name="" value="">
+			<input type="text" id="nom" name="" value="">
+			<button>+</button>	
+		</form>
+
+		<div id="resultat">
+			<h1>Liste des membres</h1>
+			<ul></ul>
+		</div>
+	</header>
+
+
+	<script>//EXERCICE 15 : Je remplis un champ prénom et un champ nom, je clique sur le + et il s'ajoute à une liste.
+
+	//Selecteurs
+	myPrenom = document.querySelector('#prenom');
+	myNom = document.querySelector('#nom');
+	myResult = document.querySelector('#resultat ul');
+	myBtn = document.querySelector('header button');
+
+	//Events
+
+	//Functions	: 
+		myBtn.addEventListener('click', function(event) {//lorsque je clique sur un bouton et que je veux en ressortir des données récoltées dans un endroit spécifique.
+			event.preventDefault();
+			if(myPrenom.value.length > 0 && myNom.value.length > 0){
+				myResult.innerHTML += "<li>" + myPrenom.value + " " + myNom.value + "</li>";
+			} else {
+				alert('Tappez qque chose!!');
+			}
+
+			
+		});
+
+	    
+	</script>
+
+</body>
+</html>

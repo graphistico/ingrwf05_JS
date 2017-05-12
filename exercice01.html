@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JS Ex 1</title>
+	<style>
+		label{
+			display: flex;
+			flex-direction:row;
+			width:800px;
+			text-align: right;
+		}
+	</style>
+</head>
+<body>
+	<form action="">
+		<label for="nom">Nom :</label>
+		<input type="text" id="nom">
+		<label for="prénom">Prénom :</label>
+		<input type="text" id="prenom">
+		<label for="email">E-mail :</label>
+		<input type="text" id="email">
+		<button>GO</button>
+	</form>
+	<output></output>
+	<script>
+		myButton = document.querySelector('button');
+		myButton.onclick = function(event) {
+			event.preventDefault();
+			//alert('test');
+			var myNom = document.querySelector('#nom');
+			var myPrenom = document.querySelector('#prenom');
+			var myEmail = document.querySelector('#email');
+			var texte = 'Bonjour ' + myNom.value + ' ' + myPrenom.value + ' votre email est bien <strong>' + myEmail.value + '</strong> ?';
+			var myOutput= document.querySelector('output');
+			myOutput.innerHTML = texte;
+		};
+	</script>
+</body>
+</html>

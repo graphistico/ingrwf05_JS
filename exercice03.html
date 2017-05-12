@@ -1,0 +1,46 @@
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JS Ex 3</title>
+
+	<style>
+		input{}
+	</style>
+
+</head>
+
+<body>
+
+<header>
+	<form action="">
+		<input type="number" id="number1">
+		<input type="number" id="number2">
+		<button>Calculer</button>
+	</form>
+</header>
+
+<section></section>
+
+
+	<script>
+
+		/* exercice 3 : Afficher l'addition des deux nombres dans la section */
+
+		var myButton = document.querySelector('button'); //1.sélection du bouton le "var" en dehors de la function est à indiquer.
+
+		myButton.onclick = function(event) {
+			event.preventDefault(); //empêcher l'action native de l'évênement
+			myNumber1 = document.querySelector('#number1'); //je vais toucher cet élément pour le faire intéragir
+			myNumber2 = document.querySelector('#number2'); //je vais toucher cet élément pour le faire intéragir
+			mySection = document.querySelector('section'); //je vais toucher cet élément pour le faire intéragir
+
+			myTotal = parseInt(myNumber1.value) + parseInt(myNumber2.value);//je veux que le total des deux nombres soient additionnés parseInt(name.value)
+
+			mySection.innerHTML = myTotal; //résultat attendu dans la section
+	
+		};
+
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JS Ex 5</title>
+
+	<style>
+		input{}
+	</style>
+
+</head>
+
+<body>
+
+
+	<button>GO</button>
+
+
+	<script>
+
+		/* exercice 5 : le click du bouton qui devient inactif après l'évênement */
+		myBtn = document.querySelector('button');
+		myBtn.addEventListener('click', function() {
+			alert('ok new');
+			myBtn.removeEventListener('click');
+		});
+
+		myBtn.onclick = function() {
+			alert('ok old');
+		};
+
+
+
+	</script>
+
+</body>
+</html>

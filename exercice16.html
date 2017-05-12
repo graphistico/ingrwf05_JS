@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<title>Ex 16</title>
+</head>
+<body>
+	
+
+	<header>
+		<form action="">
+			<input type="number" id="number">
+			<button>Submit</button>	
+		</form>
+
+		<div id="resultat">
+			<h1>Résultat</h1>
+			<ul></ul>
+		</div>
+	</header>
+
+
+	<script>//EXERCICE 16 : jeux avec l'ordinateur : trouver le chiffre que l'ordinateur a choisi
+	//Selecteurs
+	myNumber = document.querySelector('#number');
+	myResult = document.querySelector('#resultat ul');
+	myBtn = document.querySelector('header button');
+
+	myNumAl = Math.floor(Math.random()*50);//mon nombre aléatoire
+
+	console.log(myNumAl);
+
+	myBtn.onclick=function(event){
+		event.preventDefault();
+	
+
+		if (myNumber.value > myNumAl){
+				myResult.innerHTML = "Trop grand !";
+		}
+		else if (myNumber.value < myNumAl){
+				myResult.innerHTML = "Trop petit !";
+		}
+		else if (myNumber.value == myNumAl){
+				myResult.innerHTML = "Gagné !";
+		} 
+
+
+	}
+
+
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JS Ex 2</title>
+	<style>
+		label{
+			display: flex;
+			flex-direction:row;
+			width:800px;
+			text-align: right;
+		}
+	</style>
+</head>
+<body>
+<header>
+	<form action="">
+		<input type="text" id="mots">
+		<button>search</button>
+	</form>
+</header>
+<section></section>
+
+
+	<script>
+
+		/* exercice 2 : lorsqu'on tape des mots clefs dans le champ et que je clique sur le bouton search, il faut faire apparaître les mots tapés dans la section. Pour cela : 1. je dois récupérer le champ, 2. récupérer la section, 3. afficher value dans section */
+
+		var myButton = document.querySelector('button'); //1.sélection du bouton le "var" en dehors de la function est à indiquer.
+
+		myButton.onclick = function(event) {
+			event.preventDefault(); //empêcher l'action native de l'évênement
+			myMots = document.querySelector('#mots'); //je touche cet élément
+			mySection = document.querySelector('section'); //je touche cet élément
+			input = myMots.value; //texte tapé dans l'input = les valeurs de myMots
+			mySection.innerHTML = input; // .innerHTML = récupération de contenu
+		};
+
+	</script>
+</body>
+</html>
